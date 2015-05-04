@@ -1,53 +1,17 @@
 /*!
- * jQuery Lite Alert Plugin v1.0
- * https://github.com/denikeweb/jquery-LiteAlert
+ * jQuery SmartModal Plugin v1.0
+ * https://github.com/denikeweb/jquery-SmartModal
  *
  * Copyright 2015 Denis Dragomirik
  * Released under the MIT license
  */
 (function( $ ) {
-	/*config = {
-		classes : {
-			box: 'lite-alert-box',
-			item: 'lite-alert-item',
-			close: 'lite-alert-item-close',
-			header: 'lite-alert-item-header',
-			content: 'lite-alert-item-content',
-			footer: 'lite-alert-item-footer'
-		},
-		speed: 200
-	};
-	hide = function () {
-		var jQueryObjItem = $(this).parent ();
-		jQueryObjItem.slideUp (config.speed, function () {jQueryObjItem.remove()});
-	};
-	show = function (headerText, contentText, footerText) {
-		if (headerText  == undefined) headerText  = '';
-		if (contentText == undefined) contentText = '';
-		if (footerText  == undefined) footerText  = '';
-		jQueryObjBox = $('.' + config.classes.box);
-		if (jQueryObjBox.length == 0) {
-			$('body').append ('<div class="' + config.classes.box + '"></div>');
-			jQueryObjBox = $('.' + config.classes.box);
-		}
-		jQueryObjBox.prepend (
-			'<div class="' + config.classes.item + '" style="display:none">' +
-				'<div class="' + config.classes.close + '"></div>' +
-				'<div class="' + config.classes.header + '">'  + headerText  + '</div>' +
-				'<div class="' + config.classes.content + '">' + contentText + '</div>' +
-				'<div class="' + config.classes.footer + '">'  + footerText  + '</div>' +
-			'</div>'
-		); //create
-		var jQueryObjItem = $('.' + config.classes.item).first();
-		jQueryObjItem.slideDown (config.speed);
-		jQueryObjItem.children('.' + config.classes.close)
-			.on('click', hide);
-	};*/
 	var     isSetModals = false,
 			iScrolled = undefined,
 			selector = 'smartModal',
 			wrapperSelector = 'wrapper',
-			keyListeners = true;
+			keyListeners = true,
+			speed = 200;
 
 		init = function (_selector, _wrapperSelector) {
 			if (_selector != undefined) selector = _selector;
@@ -69,15 +33,15 @@
 			$('.' + wrapperSelector).css('position', 'fixed').css(
 				'margin-top', '-' + iScrolled + 'px'
 			);
-			$('.' + selector + '.layer-bg').fadeIn (200);
-			$('.' + selector + '.' + winClassName + '.layer').fadeIn (200);
+			$('.' + selector + '.layer-bg').fadeIn (speed);
+			$('.' + selector + '.' + winClassName + '.layer').fadeIn (speed);
 		};
 		close = function () {
 			//close
 			$('.' + wrapperSelector).css('margin-top', '0px').css('position', 'absolute');
 			$(window).scrollTop(iScrolled);
-			$('.' + selector + '.layer').   fadeOut (200);
-			$('.' + selector + '.layer-bg').fadeOut (200);
+			$('.' + selector + '.layer').   fadeOut (speed);
+			$('.' + selector + '.layer-bg').fadeOut (speed);
 		};
 		create = function (title, contentSelector, className) {
 			var $contentObg = $(contentSelector);

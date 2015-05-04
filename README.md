@@ -45,7 +45,8 @@ Then create your window and define btn listener:
 	// $.smartModal.create(windowTitle, contentElementSelector, yourWindowCustomName);
 	$.smartModal.create('SmartModal Demo', '.modal-demo-content', 'TestModalClass');
 	
-	// $(actionBtnElementSelector).on ( 'click', function () {$.smartModal.open(yourWindowCustomName);});
+	// $(actionBtnElementSelector)
+	//	.on ( 'click', function () {$.smartModal.open(yourWindowCustomName);});
 	$('.test_modal_btn').on ( 'click', function () {$.smartModal.open('TestModalClass');});
 ```
 

@@ -13,7 +13,7 @@
 			keyListeners = true,
 			speed = 200;
 
-		init = function (_selector, _wrapperSelector) {
+		var init = function (_selector, _wrapperSelector) {
 			if (_selector != undefined) selector = _selector;
 			if (_wrapperSelector != undefined) wrapperSelector = _wrapperSelector;
 			var _this = this,
@@ -27,7 +27,7 @@
 					if (e.which == 27) $('.' + selector + '.layer') .click(); // esc   (does not work)
 				});
 		};
-		open = function (winClassName) {
+		var open = function (winClassName) {
 			iScrolled = $(window).scrollTop();
 			$(window).scrollTop(0);
 			$('.' + wrapperSelector).css('position', 'fixed').css(
@@ -36,14 +36,14 @@
 			$('.' + selector + '.layer-bg').fadeIn (speed);
 			$('.' + selector + '.' + winClassName + '.layer').fadeIn (speed);
 		};
-		close = function () {
+		var close = function () {
 			//close
 			$('.' + wrapperSelector).css('margin-top', '0px').css('position', 'absolute');
 			$(window).scrollTop(iScrolled);
 			$('.' + selector + '.layer').   fadeOut (speed);
 			$('.' + selector + '.layer-bg').fadeOut (speed);
 		};
-		create = function (title, contentSelector, className) {
+		var create = function (title, contentSelector, className) {
 			var $contentObg = $(contentSelector);
 			if ($contentObg.length == -1)
 				return false; // !!!

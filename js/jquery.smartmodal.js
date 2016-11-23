@@ -16,10 +16,9 @@
 		var init = function (_selector, _wrapperSelector) {
 			if (_selector != undefined) selector = _selector;
 			if (_wrapperSelector != undefined) wrapperSelector = _wrapperSelector;
-			var _this = this,
-				handler = function () { _this.close (); };
+			
 			$('.' + selector + '.layer, .' + selector + '.layer-bg, .' + selector + '.modalClose')
-				.on ('click', handler);
+				.on ('click', close);
 			$('.' + selector + '.modalBox').on ('click', function () {return false;});
 
 			if (keyListeners === true)
